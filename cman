@@ -1,0 +1,21 @@
+
+# choose wanted lines
+grep 
+    demo: 
+        grep 'hello world' f1 f2
+        grep 'catman' * 
+        grep 'coffee!' f3 | sort -n 
+
+    -v  choose those line don't contain pattern
+
+# sort the file in another order
+sort 
+    -n  used front-line-number
+
+
+# selct a line with idx/row-number
+awk 
+    demo 
+        awk 'NR == 10' f4 
+        
+    
