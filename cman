@@ -18,4 +18,7 @@ awk
     demo 
         awk 'NR == 10' f4 
         
+
+
+
     
