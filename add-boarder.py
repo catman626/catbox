@@ -13,22 +13,10 @@ def add_border(image_path, border_width, border_color):
 import sys, os, argparse
 
 
+
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    # parser.add_argument("other_args", nargs="*", type=str, required=True)
-    parser.add_argument("inputfile")
-    parser.add_argument("-w", "--width", type=int, help='input the desired boarder width', 
-                        required=True, default=5)
-    # parser.add_argument("-o", "--outputfile", )
+    image_pth = sys.argv[1]
+    
+    bordered_image = add_border(image_pth, border_width=5, border_color=(0, 0, 0))
 
-    args = parser.parse_args()
-
-    image_path = args.inputfile
-
-    border_width = args.width
-    print(f'get arg of width: {border_width}')
-    border_color = (0, 0, 0)  # 边框颜色，RGB格式，例如红色为(255, 0, 0)
-
-    bordered_image = add_border(image_path, border_width, border_color)
-
-    bordered_image.save('new1.png')
+    bordered_image.save(image_pth)

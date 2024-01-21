@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python ~/catbin/add-boarder.py $*

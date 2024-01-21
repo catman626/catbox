@@ -17,6 +17,21 @@ sort
 awk 
     demo 
         awk 'NR == 10' f4 
+
+
+git
+    git rm  
+        demo:   git rm onefile
+        will remove onefile, both in the index and workspace
+    git mv
+    git status:
+        will show 3 kinds of files
+        1. untracked files: new created, haven't been added
+        2. tracked, but has some modifications that have not been staged(added to the index) 
+        3. tracked, and all the modifications have been added
+
+     
+
         
 
 
