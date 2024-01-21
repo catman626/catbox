@@ -30,6 +30,13 @@ git
         2. tracked, but has some modifications that have not been staged(added to the index) 
         3. tracked, and all the modifications have been added
 
+    git merge   merge the specified branch to current branch
+        demo:   >>> git branch 
+                # * master
+                # b1
+                >>> git merge b1
+        git merge b1        
+
      
 
         
