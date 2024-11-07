@@ -15,8 +15,10 @@ import sys, os, argparse
 
 
 if __name__ == '__main__':
-    image_pth = sys.argv[1]
+    for i in range(len(sys.argv)):
+        if i == 0:
+            continue
+        img = sys.argv[i]
+        borded = add_border(img, border_width=5, border_color=(0, 0, 0))
     
-    bordered_image = add_border(image_pth, border_width=5, border_color=(0, 0, 0))
-
-    bordered_image.save(image_pth)
+        borded.save(img)

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+case $1 in 
+    python)
+        vim ~/catbin/cman/python
+        ;;
+    *)
+        vim ~/catbin/cman/bash 
+        ;;
+esac

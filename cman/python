@@ -1,0 +1,6 @@
+string 
+    strip:  remove prefix and post fix
+    rstrip: only remove the post fix
+
+    judge if empty/blank string: 
+        if s.strip(): 

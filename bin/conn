@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# sshpass -p nlp_huangx ssh huangx@210.28.133.13 -p 20644 || sshpass -p nlp_huangx ssh huangx@210.28.134.54 -p 22
+
+sshpass -p $GROUP_PASSWORD ssh $GROUP_USER@$GROUP_IP -p 22 

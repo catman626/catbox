@@ -1,0 +1,166 @@
+# How to write a good script   
+how to write a script
+1. clear the problem  
+2. enumerate the tools you are going to use  
+3. try use the commands in the shell  
+4. use history to dump the commands  
+5. add guards and prompts and more options.  
+# choose wanted lines
+grep 
+    demo: 
+        grep 'hello world' f1 f2
+        grep 'catman' * 
+        grep 'coffee!' f3 | sort -n 
+
+    -v  choose those line don't contain pattern
+    -o  used to count matched words, instead of lines
+
+# sort the file in another order
+sort 
+    -n  used front-line-number
+
+
+# selct a line with idx/row-number
+awk 
+    demo 
+        awk 'NR == 10' f4 
+
+git
+    git rm  
+        demo:   git rm onefile
+        will remove onefile, both in the index and workspace
+    git mv
+    git status:
+        will show 3 kinds of files
+        1. untracked files: new created, haven't been added
+        2. tracked, but has some modifications that have not been staged(added to the index) 
+        3. tracked, and all the modifications have been added
+
+    git merge   merge the specified branch to current branch
+        demo:   >>> git branch 
+                # * master
+                # b1
+                >>> git merge b1
+        git merge b1        
+
+scp 
+	demo: 	scp -P 22 tmp.txt huangx@210.28.133.13:/home/nfs04/huangx/xulg/raw
+		to transfer a dir: use -r option 
+		scp -P 22 -r tmpdir huangx@210.28.133.13:/home/nfs04/huangx/xulg/raw
+
+conda2 
+	demo:	
+		# create a new env
+		conda2 create -n catman python=3.8
+		# list envs
+		conda2 env list
+
+cut 
+    demo: 
+        cut -d',' -f1,2 outputfile
+    -d  determines the char of delimiter
+        by default: use \t as delimiter
+    -f  determines which column to print
+
+zip
+    demo
+        zip -r submit.zip f1 f2 f3 d3 
+    -r  recursive, otherwise, only zip the file structure, no content
+
+bash-scrip  
+
+if 
+	demo    
+		// demo1:
+		if [ $1 = "filter" ]; then 
+		    echo hello world
+		fi
+		
+	demo for else if
+		if [[ $A -eq $B ]] 
+		then 
+			echo hello shell 
+		elif [[ $A -eq $B]] 
+		then
+			echo elif hello
+		fi
+
+	1. use ; so that 'than' can be placed in the same line
+	2. conditons 
+		[[ $A -eq $B ]]
+		[[ -n "$A" ]] # for exist, not null
+		check variable existence
+		[[ -z "A" ]] # for exist
+		check file or directory
+		[[ -f "$fname" ]] # for file  
+		[[ -d "$dirname" ]] # for dir
+
+for 
+	demo 
+		for dt in train test valid
+		do 
+		    echo $dt
+		done
+
+subshell  
+	demo 
+		echo "here are the files: $(ls)"
+
+
+variables  
+    `$0` : name of running script.  
+    `$1`, `$2` : terminal parameters.  
+
+
+java 
+    priorityQueue for user defined class 
+    define a class that implements Comparable class 
+    demo    
+        class SongPlayItem implements Comparable<SongPlayItem> {
+            String songname;
+            int playcount;
+
+            @Override
+            public int compareTo(SongPlayItem it) {
+                return this.playcount - it.playcount;
+            }
+
+            public SongPlayItem(String songname, int playcount) {
+                this.songname = songname;
+                this.playcount = playcount;
+            }
+        }
+matplotlib  
+    demo: 
+        fig, ax = plt.subplots(figsize=(10,6))
+        
+        ax.plot(genres, energy, label="energy")
+        ax.plot(genres, tempo, label="tempo")
+        ax.plot(genres, loudness, label="loudness")
+        ax.plot(genres, duration, label="duration")
+        ax.plot(genres, danceability, label="danceability")
+        ax.legend()
+
+        plt.show()
+
+keymap 
+    use the tuturial in the bilibili video
+    https://www.bilibili.com/video/BV1bE411P787/?spm_id_from=333.880.my_history.page.click&vd_source=f3c2b61b8797b9ea6ae5fbaa56785b59
+
+regedit 注册表
+    1. <C-r> and input `regedit`, to edit the registry
+    2. a path looks like `计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\BiliBili` 
+        contains some paths
+        1. iconDisplay
+        2. UninstallString 
+        once fixed, the display will be OK
+    3. or `计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\BiliBili` 
+    4. <C-f> can be used to search the next appearance of a word    
+        1. with enough time, just use the name of the app, to find all related variables
+
+<C-v> 
+by default, it will paste the content, whether it is in the insert mode  
+solution: 
+    1. unmap the key bindings at the configuration file.  
+    2. map the <C-v> key in insert mode to paste system clip board  
+       - ok, currently, no more content will be pasted in normal mode

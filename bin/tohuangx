@@ -1,0 +1,2 @@
+#!/bin/bash
+sshpass -p nlp_huangx scp -P22 -r $1 huangx@210.28.134.55:/home/nfs04/huangx/xulg/$2
