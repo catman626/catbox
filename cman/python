@@ -4,3 +4,13 @@ string
 
     judge if empty/blank string: 
         if s.strip(): 
+
+
+numpy
+    ravel()
+        like flatten, but no copy
+    
+    where(Cond, A, B) 
+        make a array from A or B according to Cond
+
+    slice() and reshape() all will create a view, no copy
