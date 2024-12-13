@@ -1,0 +1,2 @@
+#!/bin/bash
+sshpass -p $GROUP_PASSWORD scp -v $1 $GROUP_USER@$GROUP_IP:/data/xuligui/transfer

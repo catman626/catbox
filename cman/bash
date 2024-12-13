@@ -20,6 +20,14 @@ sort
     -n  used front-line-number
 
 
+# look for files 
+find 
+	demo:
+		find . -name kernel_impl
+
+	description:	
+		default do recursive search
+		
 # selct a line with idx/row-number
 awk 
     demo 
@@ -47,13 +55,16 @@ scp
 	demo: 	scp -P 22 tmp.txt huangx@210.28.133.13:/home/nfs04/huangx/xulg/raw
 		to transfer a dir: use -r option 
 		scp -P 22 -r tmpdir huangx@210.28.133.13:/home/nfs04/huangx/xulg/raw
+		scp -P 22 -r matmul root@192.168.137.100:/home
 
 conda2 
 	demo:	
 		# create a new env
-		conda2 create -n catman python=3.8
+		conda2 create --name catman python=3.8
 		# list envs
 		conda2 env list
+		# remove environment	
+		conda env remove --name xxx 
 
 cut 
     demo: 
@@ -62,10 +73,20 @@ cut
         by default: use \t as delimiter
     -f  determines which column to print
 
+alias	
+	demo
+
 zip
     demo
         zip -r submit.zip f1 f2 f3 d3 
     -r  recursive, otherwise, only zip the file structure, no content
+
+du 
+	desc: 	show the disk usage of some directory
+	demo: 
+		du -ah .
+	-a	means all files/directory in the dir
+	-h 	show in human-friendly mod
 
 bash-scrip  
 
@@ -88,12 +109,13 @@ if
 	1. use ; so that 'than' can be placed in the same line
 	2. conditons 
 		[[ $A -eq $B ]]
-		[[ -n "$A" ]] # for exist, not null
-		check variable existence
-		[[ -z "A" ]] # for exist
+		[[ -n "$A" ]] 	# true if A is not empty, 'n' means not empty
+		[[ -z "A" ]] 	# true if A is empty
 		check file or directory
 		[[ -f "$fname" ]] # for file  
 		[[ -d "$dirname" ]] # for dir
+	-1. remember to add the "
+		or there will be nothing, which leads to a gramma error
 
 for 
 	demo 
@@ -109,7 +131,7 @@ subshell
 
 variables  
     `$0` : name of running script.  
-    `$1`, `$2` : terminal parameters.  
+    `$1`, `$2` : terminal arguments.  
 
 
 java 

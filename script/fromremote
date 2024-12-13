@@ -1,0 +1,2 @@
+#!/bin/bash
+sshpass -p $GROUP_PASSWORD scp -P22 -r $GROUP_USER@$GROUP_IP:$1 $2
