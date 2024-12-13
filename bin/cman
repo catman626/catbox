@@ -1,10 +1,11 @@
 #!/bin/bash
 
+cman_dir=~/catbin/share/cman
 case $1 in 
     python)
-        vim ~/catbin/cman/python
+        vim $cman_dir/python
         ;;
     *)
-        vim ~/catbin/cman/bash 
+        vim $cman_dir/bash 
         ;;
 esac
