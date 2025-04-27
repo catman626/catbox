@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cman_dir=~/catbin/share/cman
+cman_dir=~/catbox/share/cman
 case $1 in 
     python)
         vim $cman_dir/python

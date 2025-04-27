@@ -1,0 +1,11 @@
+#!/bin/bash
+
+remote=$1
+filename=$2
+echo remote is $remote
+if [ "$remote" -eq "pi"]
+then 
+    sshpass -p Mind@123 scp -r root@192.168.137.100:/root/$filename .
+else
+    echo unrecognized remote: $remote 
+fi

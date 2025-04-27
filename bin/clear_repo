@@ -1,0 +1,1 @@
+rm .gitattributes LICENSE.md README.md .gitignore .git -rf

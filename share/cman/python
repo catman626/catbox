@@ -14,6 +14,8 @@ numpy
         make a array from A or B according to Cond
 
     slice() and reshape() all will create a view, no copy
+	
+	create a ndarray
 
 commandline arguments
 	import argparser
@@ -22,4 +24,27 @@ commandline arguments
 	parser.add_argument("--show_shape", action="store_true", help="show the shape of parameters")
 	args = parser.parse_args()
 
-	main(args.show_shape)
+	main(args.show_shape)			# using the args
+	
+	# argparser.ArgumentParser(epilog="python a b 123")	
+		# to make "-h" work, add epilog
+
+
+thread
+	import threading
+
+	t1 = threading.Tread(target=foo, args=[1,2])
+	t2 = threading.Tread(target=foo, args=[1,2])
+	t1.start()
+	t2.start()
+
+	t1.join()
+	t2.join()
+
+
+matplotlib
+	ax.set_xticks(arr + width/2)	# set the locations of every x tick
+	ax.set_xticklabels(xtags)		# label at every x tick, input is str-arr
+	ax.set_xlabel("xxx") 			# label for x axis
+	ax.set_ylabel("yyy")			# label for y axis 
+	

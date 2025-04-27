@@ -1,0 +1,18 @@
+{
+  "MselossCustom": {
+    "dynamicRankSupport": true,
+    "simplifiedKeyMode": 0,
+    "binaryList": [
+      {
+        "coreType": 2,
+        "simplifiedKey": "MselossCustom/d=0,p=0/1,2/1,2/1,2",
+        "binPath": "ascend310b/mseloss_custom/MselossCustom_73ca3925e3e9120293f07c3b303b4a41.o"
+      },
+      {
+        "coreType": 2,
+        "simplifiedKey": "MselossCustom/d=1,p=0/1,2/1,2/1,2",
+        "binPath": "ascend310b/mseloss_custom/MselossCustom_73ca3925e3e9120293f07c3b303b4a41.o"
+      }
+    ]
+  }
+}

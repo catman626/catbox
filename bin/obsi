@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Directory to check
+obsidian_path=/mnt/c/Users/xlglm/workshop/library/obsidian/catnotebook
+
+# Get the current time (in seconds since the epoch)
+CURRENT_TIME=$(date +%s)
+
+# Get the last access time of the directory (in seconds since the epoch)
+LAST_ACCESS_TIME=$(stat -c %X "$obsidian_path")
+
+# Time difference in seconds
+TIME_DIFF=$((CURRENT_TIME - LAST_ACCESS_TIME))
+
+# Threshold for considering "recently accessed" (in seconds, e.g., 24 hours)
+THRESHOLD=3600  # 3600 seconds = 1 hour
+
+# Check if the directory has been accessed within the threshold time
+if [ "$TIME_DIFF" -le "$THRESHOLD" ]; then
+    echo ">>> syncronize obsidian directory begin"
+    cd $obsidian_path
+    git add .
+    git commit -m "auto-checkpoint" 
+    git push
+    echo "<<< synchronize finish"
+    cd -
+    
+fi

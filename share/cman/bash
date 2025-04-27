@@ -13,6 +13,8 @@ grep
         grep 'coffee!' f3 | sort -n 
 
     -v  choose those line don't contain pattern
+	-l only show the filenames
+		-L not show filenames
     -o  used to count matched words, instead of lines
 
 # sort the file in another order
@@ -36,7 +38,7 @@ awk
 git
     git rm  
         demo:   git rm onefile
-        will remove onefile, both in the index and workspace
+        will remove one file, both in the index and workspace
     git mv
     git status:
         will show 3 kinds of files
@@ -50,6 +52,7 @@ git
                 # b1
                 >>> git merge b1
         git merge b1        
+	
 
 scp 
 	demo: 	scp -P 22 tmp.txt huangx@210.28.133.13:/home/nfs04/huangx/xulg/raw
@@ -88,6 +91,20 @@ du
 	-a	means all files/directory in the dir
 	-h 	show in human-friendly mod
 
+gcc 
+	-D pre-define macro 
+		gcc -D TEST 
+			then, in code TEST=1
+	-I specify where to find the head files
+	
+		#include"" will look for
+			1. dir containing .c file
+			2. already opened dir
+			3. -I 
+			4. INCLUDE environment var
+		#include<> will look for 
+			1. -I
+
 bash-scrip  
 
 if 
@@ -96,6 +113,7 @@ if
 		if [ $1 = "filter" ]; then 
 		    echo hello world
 		fi
+		// important, -eq is for arithmetic expr, not for string
 		
 	demo for else if
 		if [[ $A -eq $B ]] 
@@ -114,6 +132,8 @@ if
 		check file or directory
 		[[ -f "$fname" ]] # for file  
 		[[ -d "$dirname" ]] # for dir
+		!!! >>> very important !!!, place one between the bracket and cond-expression
+
 	-1. remember to add the "
 		or there will be nothing, which leads to a gramma error
 
@@ -133,6 +153,9 @@ variables
     `$0` : name of running script.  
     `$1`, `$2` : terminal arguments.  
 
+markdown
+	table 
+	
 
 java 
     priorityQueue for user defined class 
@@ -152,6 +175,7 @@ java
                 this.playcount = playcount;
             }
         }
+
 matplotlib  
     demo: 
         fig, ax = plt.subplots(figsize=(10,6))

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+remote=$1
+shift 1
+filenames=$@
+echo $remote
+
+
+if [[ "$remote" = "pi" ]]
+then 
+    echo " scp to pi"
+    sshpass -p Mind@123 scp -r $filenames root@$PI_IP:/root/$filename
+elif [[ "$remote" = "huawei" ]]
+then
+    echo " >>> scp to huawei "
+    sshpass -p Megacat666 scp -r $filenames catman@$HUAWEI_IP:/home/catman/FlexAscend
+else
+    echo "invalid remote:" $remote
+fi

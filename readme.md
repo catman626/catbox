@@ -1,6 +1,6 @@
 # catbin 
 ## dream 
-1. to build a customized man page for quick reference.  
+1. to build a customized man page for quick reference (very quick, quicker than gpt).  
 2. only collects those often used, always forgetten commands and APIs.  
 ## directory structurebin/
 - `script/` : python scripts, shell scripts, ... 
