@@ -60,13 +60,14 @@ scp
 		scp -P 22 -r tmpdir huangx@210.28.133.13:/home/nfs04/huangx/xulg/raw
 		scp -P 22 -r matmul root@192.168.137.100:/home
 
-conda2 
+conda 
 	demo:	
 		# create a new env
-		conda2 create --name catman python=3.8
+		conda create --name catman python=3.8
+		--name or -n 
 		# list envs
-		conda2 env list
-		# remove environment	
+		conda env list
+		# remove environment, need to use -n to specify the name
 		conda env remove --name xxx 
 
 cut 
@@ -105,6 +106,32 @@ gcc
 		#include<> will look for 
 			1. -I
 
+ffmpeg
+	ffmpeg -i xxx.mkv
+	-c:a
+	-c:v
+	-c:s
+	-c
+		encode,表示编码，冒号之后为v：视频, a:audio 音频, s:subtitle 字幕
+	-vf 
+		指定 video 的 filter
+		需要接一个字符串参数，eg：-vf "pad=1920:1080:0:0:black"
+		pad填充边框，可指定颜色
+		subtitles: 将字幕编码进视频之中
+	-aspect 16:9
+		指定长宽比
+	-ss 00:00:00
+		输出的起始时间
+	-t 100
+		输出时间 100s
+	-to 01:00:00
+		结束时间点
+	-map
+		指定轨道
+		-map 0:s:0 0th 的视频，弹幕轨道，第一条
+	
+	
+
 bash-scrip  
 
 if 
@@ -137,7 +164,7 @@ if
 	-1. remember to add the "
 		or there will be nothing, which leads to a gramma error
 
-for 
+for-loop
 	demo 
 		for dt in train test valid
 		do 
@@ -155,6 +182,13 @@ variables
 
 markdown
 	table 
+
+system information 
+	uname -a:	cpu architecture
+	lscpu : 	
+	free -h:	memory information
+	lsblk:		disk information
+	
 	
 
 java 
@@ -188,6 +222,7 @@ matplotlib
         ax.legend()
 
         plt.show()
+
 
 keymap 
     use the tuturial in the bilibili video

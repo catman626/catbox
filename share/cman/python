@@ -47,4 +47,13 @@ matplotlib
 	ax.set_xticklabels(xtags)		# label at every x tick, input is str-arr
 	ax.set_xlabel("xxx") 			# label for x axis
 	ax.set_ylabel("yyy")			# label for y axis 
+
+
+	set Chinese font:
+	plt.rcParams["font family"] = "SimHei"
+	if there is still problem, might be font not installed on my system
+	refer to my obsidian to install the font
+		and install in matplotlib
 	
+import from another directory
+	sys.path.append("..")

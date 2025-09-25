@@ -6,7 +6,7 @@ source=$2
 echo remote is $remote
 if [[ "$remote" = "huawei" ]]
 then 
-    sshpass -p Megacat666 scp -r $HUAWEI_IP:/home/catman/FlexAscend/$source .
+    sshpass -p Megacat666 scp -r $HUAWEI_IP:/home/catman/inference/FlexAscend/$source .
 else
     echo "remote not supported" $remote
 fi

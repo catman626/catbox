@@ -1,0 +1,10 @@
+ffmpeg -i input.mkv \		# 指定 输入文件
+       -vf "pad=1920:1080:0:(1080-816)/2:black, subtitles=sub.srt" \
+       -c:v libx264 \
+       -c:a copy \
+       -crf 18 \             # 关键质量参数（18≈视觉无损）
+       -preset slower \      # 更慢=更好压缩
+       -tune film \          # 优化电影内容
+       -profile:v high \     # 高质量配置
+       -x264-params "aq-mode=3:psy-rd=1.0:deblock=-1,-1" \ # 高级优化
+       output.mkv		# 最后一个参数：输出文件
