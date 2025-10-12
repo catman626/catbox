@@ -1,0 +1,8 @@
+
+local_ip=$1
+ip_file="/tmp/local_ip.txt"
+# 172.27.134.40
+
+echo $local_ip > $ip_file
+to group $ip_file
+

@@ -223,6 +223,16 @@ matplotlib
 
         plt.show()
 
+curl
+	demo:
+		curl http://localhost:8000/v1/completions \
+			-H "Content-Type: application/json" \
+			-d "..."
+
+
+	-H	增加新的header
+	-d 	指定数据字段
+
 
 keymap 
     use the tuturial in the bilibili video
