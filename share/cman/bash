@@ -35,6 +35,7 @@ awk
     demo 
         awk 'NR == 10' f4 
 
+
 git
     git rm  
         demo:   git rm onefile
@@ -52,6 +53,14 @@ git
                 # b1
                 >>> git merge b1
         git merge b1        
+
+jobs
+	展示所有后台运行的进程
+	只有当前的shell，通过 nohup，ctrl-Z 挂起的进程
+		不是当前用户
+
+	输出会给出一个 进程的标号 如 1，2，3
+	用 fg 1 的方式加载到前台执行
 	
 
 scp 
