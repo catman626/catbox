@@ -21,11 +21,15 @@ grep
 sort 
     -n  used front-line-number
 
+wc 
+	output: 
+
 
 # look for files 
 find 
 	demo:
 		find . -name kernel_impl
+		find . -iname xxxx			caseignore
 
 	description:	
 		default do recursive search
