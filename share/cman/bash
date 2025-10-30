@@ -97,6 +97,9 @@ zip
     demo
         zip -r submit.zip f1 f2 f3 d3 
     -r  recursive, otherwise, only zip the file structure, no content
+	-y 	处理软连接，-y开启后，不会做 dereference，而是保留连接的格式
+		cp 和 scp 也会有类似的问题
+		似乎是使用 -d 来解决这个问题
 
 du 
 	desc: 	show the disk usage of some directory
