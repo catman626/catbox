@@ -16,6 +16,8 @@ grep
 	-l only show the filenames
 		-L not show filenames
     -o  used to count matched words, instead of lines
+	-E 	enable Regular Expression, 
+		grep -E "aaa|bbb" xxx		to match 多个 表达式
 
 # sort the file in another order
 sort 
@@ -44,6 +46,9 @@ git
     git rm  
         demo:   git rm onefile
         will remove one file, both in the index and workspace
+	git rm --cached
+		remove added files, not commited files
+	
     git mv
     git status:
         will show 3 kinds of files
@@ -56,7 +61,9 @@ git
                 # * master
                 # b1
                 >>> git merge b1
-        git merge b1        
+        git merge b1        	
+
+	git branch
 
 jobs
 	展示所有后台运行的进程
@@ -78,10 +85,13 @@ conda
 		# create a new env
 		conda create --name catman python=3.8
 		--name or -n 
+		# clone from another-env
+		conda create --name new-env --clone old-env
 		# list envs
 		conda env list
 		# remove environment, need to use -n to specify the name
-		conda env remove --name xxx 
+		conda env remove --name xxx 	
+		
 
 cut 
     demo: 
