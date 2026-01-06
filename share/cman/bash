@@ -22,6 +22,10 @@ grep
 # sort the file in another order
 sort 
     -n  used front-line-number
+	-k 	use column k to sort 
+		-k 2:	use column[1]
+		-k 2,4:	use column[2~4]
+		
 
 wc 
 	output: 
