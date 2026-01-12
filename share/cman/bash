@@ -1,5 +1,5 @@
 # How to write a good script   
-how to write a script
+how to write a script( seems very stupid now)
 1. clear the problem  
 2. enumerate the tools you are going to use  
 3. try use the commands in the shell  
@@ -25,17 +25,16 @@ sort
 	-k 	use column k to sort 
 		-k 2:	use column[1]
 		-k 2,4:	use column[2~4]
-		
 
 wc 
 	output: 
-
+	
 
 # look for files 
 find 
 	demo:
 		find . -name kernel_impl
-		find . -iname xxxx			caseignore
+		find . -iname xxxx			case-ignore
 
 	description:	
 		default do recursive search
@@ -44,7 +43,6 @@ find
 awk 
     demo 
         awk 'NR == 10' f4 
-
 
 git
     git rm  
@@ -69,34 +67,6 @@ git
 
 	git branch
 
-jobs
-	展示所有后台运行的进程
-	只有当前的shell，通过 nohup，ctrl-Z 挂起的进程
-		不是当前用户
-
-	输出会给出一个 进程的标号 如 1，2，3
-	用 fg 1 的方式加载到前台执行
-	
-
-scp 
-	demo: 	scp -P 22 tmp.txt huangx@210.28.133.13:/home/nfs04/huangx/xulg/raw
-		to transfer a dir: use -r option 
-		scp -P 22 -r tmpdir huangx@210.28.133.13:/home/nfs04/huangx/xulg/raw
-		scp -P 22 -r matmul root@192.168.137.100:/home
-
-conda 
-	demo:	
-		# create a new env
-		conda create --name catman python=3.8
-		--name or -n 
-		# clone from another-env
-		conda create --name new-env --clone old-env
-		# list envs
-		conda env list
-		# remove environment, need to use -n to specify the name
-		conda env remove --name xxx 	
-		
-
 cut 
     demo: 
         cut -d',' -f1,2 outputfile
@@ -115,12 +85,45 @@ zip
 		cp 和 scp 也会有类似的问题
 		似乎是使用 -d 来解决这个问题
 
+jobs
+	展示所有后台运行的进程
+	只有当前的shell，通过 nohup，ctrl-Z 挂起的进程
+		不是当前用户
+
+	输出会给出一个 进程的标号 如 1，2，3
+	用 fg 1 的方式加载到前台执行
+
+scp 
+	demo: 	scp -P 22 tmp.txt xxx_user@xxx.yyy.zzz.www:/home/xxx_user
+	options:	
+		-r	:to transfer a dir 
+		
+
+conda 
+	demo:	
+		# create a new env
+		conda create --name catman python=3.8
+		--name or -n 
+		# clone from another-env
+		conda create --name new-env --clone old-env
+		# list envs
+		conda env list
+		# remove environment, need to use -n to specify the name
+		conda env remove --name xxx 	
+
+system information 
+	uname -a:	cpu architecture
+	lscpu : 	
+	free -h:	memory information
+	lsblk:		disk information
+
 du 
 	desc: 	show the disk usage of some directory
 	demo: 
 		du -ah .
 	-a	means all files/directory in the dir
 	-h 	show in human-friendly mod
+	-d1 展开深度
 
 gcc 
 	-D pre-define macro 
@@ -159,10 +162,8 @@ ffmpeg
 	-map
 		指定轨道
 		-map 0:s:0 0th 的视频，弹幕轨道，第一条
-	
-	
 
-bash-scrip  
+### bash-scrip  
 
 if 
 	demo    
@@ -181,7 +182,7 @@ if
 			echo elif hello
 		fi
 
-	1. use ; so that 'than' can be placed in the same line
+	1. use ";" so that 'than' can be placed in the same line
 	2. conditons 
 		[[ $A -eq $B ]]
 		[[ -n "$A" ]] 	# true if A is not empty, 'n' means not empty
@@ -191,7 +192,7 @@ if
 		[[ -d "$dirname" ]] # for dir
 		!!! >>> very important !!!, place one between the bracket and cond-expression
 
-	-1. remember to add the "
+	-1. remember to add the "some_var"
 		or there will be nothing, which leads to a gramma error
 
 for-loop
@@ -202,63 +203,19 @@ for-loop
 		done
 
 subshell  
+	$(some_comand)
 	demo 
 		echo "here are the files: $(ls)"
-
 
 variables  
     `$0` : name of running script.  
     `$1`, `$2` : terminal arguments.  
-
-markdown
-	table 
-
-system information 
-	uname -a:	cpu architecture
-	lscpu : 	
-	free -h:	memory information
-	lsblk:		disk information
-	
-	
-
-java 
-    priorityQueue for user defined class 
-    define a class that implements Comparable class 
-    demo    
-        class SongPlayItem implements Comparable<SongPlayItem> {
-            String songname;
-            int playcount;
-
-            @Override
-            public int compareTo(SongPlayItem it) {
-                return this.playcount - it.playcount;
-            }
-
-            public SongPlayItem(String songname, int playcount) {
-                this.songname = songname;
-                this.playcount = playcount;
-            }
-        }
-
-matplotlib  
-    demo: 
-        fig, ax = plt.subplots(figsize=(10,6))
-        
-        ax.plot(genres, energy, label="energy")
-        ax.plot(genres, tempo, label="tempo")
-        ax.plot(genres, loudness, label="loudness")
-        ax.plot(genres, duration, label="duration")
-        ax.plot(genres, danceability, label="danceability")
-        ax.legend()
-
-        plt.show()
 
 curl
 	demo:
 		curl http://localhost:8000/v1/completions \
 			-H "Content-Type: application/json" \
 			-d "..."
-
 
 	-H	增加新的header
 	-d 	指定数据字段

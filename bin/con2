@@ -1,5 +1,0 @@
-#!/bin/bash
-
-PI_PASSWORD="Mind@123"
-
-sshpass -p $PI_PASSWORD ssh HwHiAiUser@$PI_IP
