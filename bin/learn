@@ -1,8 +1,0 @@
-#!/bin/bash
-
-if [ -z "$1" ]
-then 
-    vim ~/catbin/cman/default
-else
-    vim ~/catbin/cman/$1
-fi

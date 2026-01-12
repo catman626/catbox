@@ -10,12 +10,12 @@ then
     sshpass -p Mind@123 scp -r $filenames HwHiAiUser@$PI_IP:/home/HwHiAiUser/catman/FlexAscend-master/
 elif [[ "$remote" = "huawei" ]]
 then
-    echo " >>> scp to huawei "
-    sshpass -p Megacat666 scp -r $filenames catman@$HUAWEI_IP:/home/catman/inference/FlexAscend
+    echo " >>> deprecated "
 elif [[ "$remote" = "group" ]]
 then 
     echo " >>> scp to group remote"
-    sshpass -p $GROUP_PASSWORD scp -r $filenames llmserver@$GROUP_IP:/home/llmserver/xulg/
+	# sshpass -p $GROUP_PASSWORD scp -r $filenames $GROUP_USER@$GROUP_IP:/home/llmserver/xulg/
+	scp -r $filenames $GROUP_USER@$GROUP_IP:/home/llmserver/xulg/
 else
     echo "invalid remote:" $remote
 fi
