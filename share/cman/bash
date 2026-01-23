@@ -105,7 +105,7 @@ conda
 		conda create --name catman python=3.8
 		--name or -n 
 		# clone from another-env
-		conda create --name new-env --clone old-env
+		conda create --name my-new-env --clone my-old-env
 		# list envs
 		conda env list
 		# remove environment, need to use -n to specify the name
@@ -113,6 +113,7 @@ conda
 
 system information 
 	uname -a:	cpu architecture
+	
 	lscpu : 	
 	free -h:	memory information
 	lsblk:		disk information
@@ -190,6 +191,7 @@ if
 		check file or directory
 		[[ -f "$fname" ]] # for file  
 		[[ -d "$dirname" ]] # for dir
+		[[ ! -f "$fname" ]] # for file  
 		!!! >>> very important !!!, place one between the bracket and cond-expression
 
 	-1. remember to add the "some_var"
@@ -220,3 +222,5 @@ curl
 	-H	增加新的header
 	-d 	指定数据字段
 
+realpath
+	show the absolute path of file/dir
