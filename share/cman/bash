@@ -209,7 +209,7 @@ subshell
 	demo 
 		echo "here are the files: $(ls)"
 
-variables  
+shell-args
     `$0` : name of running script.  
     `$1`, `$2` : terminal arguments.  
 
