@@ -93,10 +93,27 @@ jobs
 	输出会给出一个 进程的标号 如 1，2，3
 	用 fg 1 的方式加载到前台执行
 
+history 命令显示 历史记录
+	- 使用 `!123` 再次执行, 编号为123 的历史命令
+
+## path 
+打印绝对路径(abspath)
+	realpath xxx.txt
+
+kill 
+
+	`kill -9 %1` # 使用 jobs 打印的 编号 kill
+	`kill -9 3211` # 使用 ps 打印的 编号 kill
+
+
 scp 
 	demo: 	scp -P 22 tmp.txt xxx_user@xxx.yyy.zzz.www:/home/xxx_user
 	options:	
 		-r	:to transfer a dir 
+		link problem can not be solved, use tar+scp to handle
+
+tar 	
+	demo:	
 		
 
 conda 
@@ -140,7 +157,8 @@ gcc
 			1. -I
 
 ffmpeg
-	ffmpeg -i xxx.mkv
+	ffmpeg -i xxx.mkv  -ss 21:00 -to 22:30 c copy output.mkv
+	- 一个不加选项的 参数 作为输出
 	-c:a
 	-c:v
 	-c:s
@@ -183,7 +201,7 @@ if
 		fi
 
 	1. use ";" so that 'than' can be placed in the same line
-	2. conditons 
+	2. conditions 
 		[[ $A -eq $B ]]
 		[[ -n "$A" ]] 	# true if A is not empty, 'n' means not empty
 		[[ -z "A" ]] 	# true if A is empty

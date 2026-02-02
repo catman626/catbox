@@ -3,10 +3,18 @@
 remote=$1
 source=$2
 
+if [[ -z "$source" ]]
+then 
+	echo " >>> usage: from [group|...] path/to/remote-file"
+	echo " >>> caution that remote file xxx will be ~/xxx in remote-node"
+	echo " file will be transferred to current dir"
+fi
+
 echo remote is $remote
 if [[ "$remote" = "group" ]]
 then 
-    scp -r $GROUP_IP:/home/$GROUP_USER/source .
+    scp -yr $GROUP_USER@$GROUP_IP:/home/$GROUP_USER/$source .
+    
 else
     echo "remote not supported" $remote
 fi
