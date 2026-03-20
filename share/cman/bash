@@ -107,10 +107,21 @@ kill
 
 
 scp 
+	!!! if not necessary, use rsync instead
+
 	demo: 	scp -P 22 tmp.txt xxx_user@xxx.yyy.zzz.www:/home/xxx_user
 	options:	
 		-r	:to transfer a dir 
 		link problem can not be solved, use tar+scp to handle
+
+rsync 
+	demo: 	rsync -avzP path-to-local-file remote_user@222.111.0.11:/home/remote_user/
+		-a	mainly due to sym-link issue, will not dereference syn-link
+		-v 	verbose
+		-z	will compress
+		-P	Partial/Progress, when fail, will recover from the failure point
+		
+		
 
 tar 	
 	demo:	

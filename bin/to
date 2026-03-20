@@ -14,8 +14,8 @@ then
 elif [[ "$remote" = "group" ]]
 then 
     echo " >>> scp to group remote"
+	rsync -avP $filenames $GROUP_USER@$GROUP_IP:/data/xulg
 
-	scp -r $filenames $GROUP_USER@$GROUP_IP:/data/xulg
 else
     echo "invalid remote:" $remote
 fi

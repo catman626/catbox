@@ -13,8 +13,7 @@ fi
 echo remote is $remote
 if [[ "$remote" = "group" ]]
 then 
-    scp -yr $GROUP_USER@$GROUP_IP:/home/$GROUP_USER/$source .
-    
+    rsync -avP $GROUP_USER@$GROUP_IP:/home/$GROUP_USER/$source .
 else
     echo "remote not supported" $remote
 fi
