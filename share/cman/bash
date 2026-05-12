@@ -121,8 +121,11 @@ rsync
 		-z	will compress
 		-P	Partial/Progress, when fail, will recover from the failure point
 		
-		
-
+tree 
+	demo:	tree -L 2 .
+		-L depth
+		-I ignore/exclude some files,
+	
 tar 	
 	demo:	
 		
@@ -169,10 +172,11 @@ gcc
 			1. -I
 
 ffmpeg
-	ffmpeg -i xxx.mkv  -ss 21:00 -to 22:30 c copy output.mkv
+	ffmpeg -i xxx.mkv  -ss 21:00 -to 22:30 -c copy output.mkv
+	ffmpeg -i xxx.mkv -vn 
 	- 一个不加选项的 参数 作为输出
-	-c:a
-	-c:v
+	-c:a	eg: -c:a aac
+	-c:v	eg: -c:v libx264 
 	-c:s
 	-c
 		encode,表示编码，冒号之后为v：视频, a:audio 音频, s:subtitle 字幕
@@ -180,18 +184,33 @@ ffmpeg
 		指定 video 的 filter
 		需要接一个字符串参数，eg：-vf "pad=1920:1080:0:0:black"
 		pad填充边框，可指定颜色
-		subtitles: 将字幕编码进视频之中
+		subtitles: 将字幕编码进视频之中, eg: -vf "subtitles=another-file.mkv:si=0"
 	-aspect 16:9
 		指定长宽比
 	-ss 00:00:00
 		输出的起始时间
+		放在 -i 之前, 可以防止cut的开头混乱问题
 	-t 100
 		输出时间 100s
 	-to 01:00:00
 		结束时间点
 	-map
 		指定轨道
-		-map 0:s:0 0th 的视频，弹幕轨道，第一条
+			如果不设置的话, ffmpeg 会自动根据一些规则, 选1个视频流和1个音频流,不会选择字幕流水
+		-map 0:s:0 stream[0], subtitile(字幕轨道)的第0th 个stream
+	-b:v
+	-b:a
+		指定码率, 
+		eg. -b:v 9000k 	常用值, 大约 4GB/h
+		-b:a 256k 	常用之, 基本听觉无损
+	-maxrate 
+		防止一个区域内的码率过大, 对解码设备产生过重的负担
+			不设置的话, ffmpeg 可以无限调大
+			必须要配合 -bufsize 使用, bufsize 设置为平均码率的两倍
+		eg. -maxrate 15000k -bufsize 18000k
+	-f 	
+		-f null, 不输出文件
+		-f format, 一般ffmpeg 会根据输出文件的后缀判断格式
 
 ### bash-scrip  
 
