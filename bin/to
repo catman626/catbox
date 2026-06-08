@@ -8,13 +8,13 @@ if [[ "$remote" = "pi" ]]
 then 
     echo " scp to pi"
     sshpass -p Mind@123 scp -yr $filenames HwHiAiUser@$PI_IP:/home/HwHiAiUser/catman/FlexAscend-master/
-elif [[ "$remote" = "huawei" ]]
+elif [[ "$remote" = "a6000" ]]
 then
-    echo " >>> deprecated "
+	rsync -avP $filenames xulg@210.28.132.29:/data/xulg/
 elif [[ "$remote" = "group" ]]
 then 
     echo " >>> scp to group remote"
-	rsync -avP $filenames $GROUP_USER@$GROUP_IP:/data/xulg
+	rsync -avP $filenames $GROUP_USER@$GROUP_IP:/data/xulg/
 
 else
     echo "invalid remote:" $remote
